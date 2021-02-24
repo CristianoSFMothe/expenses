@@ -22,7 +22,7 @@ class MyHomePage extends StatelessWidget {
         value: 310.76,
         date: DateTime.now()),
     Transaction(
-        id: 't2', title: 'Conta de Luz', value: 211.33, date: DateTime.now()),
+        id: 't2', title: 'Conta de Luz', value: 211.3, date: DateTime.now()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,8 +59,9 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       padding: EdgeInsets.all(10),
+                      // Preço
                       child: Text(
-                        tr.value.toString(),
+                        'R\$ ${tr.value.toStringAsFixed(2)}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -80,6 +81,7 @@ class MyHomePage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        // Titulo e data
                         Text(
                           tr.date.toString(),
                           style: TextStyle(
