@@ -14,21 +14,15 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   // Usando a classe transactions
   final _transactions = [
     Transaction(
-      id: 't1',
-      title: 'Novo Têns de Corrida',
-      value: 310.76,
-      date: DateTime.now()
-    ),
+        id: 't1',
+        title: 'Novo Têns de Corrida',
+        value: 310.76,
+        date: DateTime.now()),
     Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.33,
-      date: DateTime.now()
-    ),
+        id: 't2', title: 'Conta de Luz', value: 211.33, date: DateTime.now()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,9 +41,13 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Card(
-            child: Text('Lista de transaçõe'),
-          ),
+          Column(
+            children: _transactions.map((tr) {
+              return Card(
+                child: Text(tr.title),
+              );
+            }).toList(),
+          )
         ],
       ),
     );
