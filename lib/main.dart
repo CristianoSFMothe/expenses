@@ -1,11 +1,15 @@
 import 'models/transactions.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Intl.defaultLocale = 'pt_BR';
+    initializeDateFormatting('pt_BR', null);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -22,7 +26,11 @@ class MyHomePage extends StatelessWidget {
         value: 310.76,
         date: DateTime.now()),
     Transaction(
-        id: 't2', title: 'Conta de Luz', value: 211.3, date: DateTime.now()),
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.3,
+      date: DateTime.now(),
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -83,7 +91,11 @@ class MyHomePage extends StatelessWidget {
                         ),
                         // Titulo e data
                         Text(
-                          tr.date.toString(),
+                          DateFormat('d').format(tr.date) +
+                              ' de ' +
+                              DateFormat('MMM').format(tr.date) +
+                              ' de ' +
+                              DateFormat('y').format(tr.date),
                           style: TextStyle(
                             color: Colors.grey,
                           ),
