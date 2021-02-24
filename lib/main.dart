@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import 'models/transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -18,6 +20,9 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   // Usando a classe transactions
   final _transactions = [
     Transaction(
@@ -113,20 +118,28 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextField(
+                    controller: titleController,
                     decoration: InputDecoration(
                       labelText: 'Título',
                     ),
                   ),
                   TextField(
+                    keyboardType: TextInputType.number,
+                    
+                    controller: valueController,
                     decoration: InputDecoration(
-                      labelText: 'Valor (R\$)',
+                      labelText: 'Valor (R\$)', 
                     ),
+                    
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(titleController.text);
+                          print(valueController.text);
+                        },
                         child: Text('Nova Tansação'),
                         textColor: Colors.purple,
                       ),
