@@ -1,3 +1,4 @@
+import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/components/transactions_list.dart';
 import 'package:flutter/services.dart';
 import 'models/transactions.dart';
@@ -16,9 +17,6 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final titleController = TextEditingController();
-  final valueController = TextEditingController();
-
   // Usando a classe transactions
   final _transactions = [
     Transaction(
@@ -49,49 +47,12 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-        
-        // Importando a class TransactionList - que será responsável pela as transações
-        TransactionList(_transactions),
 
-        
-          Card(
-            elevation: 5,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                    controller: titleController,
-                    decoration: InputDecoration(
-                      labelText: 'Título',
-                    ),
-                  ),
-                  TextField(
-                    keyboardType: TextInputType.number,
-                    
-                    controller: valueController,
-                    decoration: InputDecoration(
-                      labelText: 'Valor (R\$)', 
-                    ),
-                    
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      FlatButton(
-                        onPressed: () {
-                          print(titleController.text);
-                          print(valueController.text);
-                        },
-                        child: Text('Nova Tansação'),
-                        textColor: Colors.purple,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Importando a class TransactionList - que será responsável pela as transações
+          TransactionList(_transactions),
+
+          // Importando a class TransactionForm - que é responsável pelos os formulários
+          TransactionForm(),
         ],
       ),
     );
