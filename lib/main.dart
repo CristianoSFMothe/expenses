@@ -72,17 +72,8 @@ class MyHomePage extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           tr.title,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
                         ),
-                        Text(
-                          tr.date.toString(),
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
-                        ),
+                        Text(tr.date.toString()),
                       ],
                     )
                   ],
