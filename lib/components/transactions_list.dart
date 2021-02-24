@@ -13,63 +13,68 @@ class TransactionList extends StatelessWidget {
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
 
-    return Column(
-      children: transactions.map((tr) {
-        return Card(
-          child: Row(
-            children: <Widget>[
-              // Card  que pretence a Row do preço
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 10,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.purple,
-                    width: 2,
+    return Container(
+      height: 300,
+      child: ListView.builder(
+        itemCount: transactions.length,
+        itemBuilder: (ctx, index) {
+          final tr = transactions[index];
+          Card(
+            child: Row(
+              children: <Widget>[
+                // Card  que pretence a Row do preço
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
                   ),
-                ),
-                padding: EdgeInsets.all(10),
-                // Preço
-                child: Text(
-                  'R\$ ${tr.value.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.purple,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.purple,
+                      width: 2,
+                    ),
                   ),
-                ),
-              ),
-
-              // Card que pretence a Column do title e date
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    tr.title,
+                  padding: EdgeInsets.all(10),
+                  // Preço
+                  child: Text(
+                    'R\$ ${tr.value.toStringAsFixed(2)}',
                     style: TextStyle(
-                      fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.purple,
                     ),
                   ),
-                  // Titulo e data
-                  Text(
-                    DateFormat('d').format(tr.date) +
-                        ' de ' +
-                        DateFormat('MMM').format(tr.date) +
-                        ' de ' +
-                        DateFormat('y').format(tr.date),
-                    style: TextStyle(
-                      color: Colors.grey,
+                ),
+
+                // Card que pretence a Column do title e date
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      tr.title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        );
-      }).toList(),
+                    // Titulo e data
+                    Text(
+                      DateFormat('d').format(tr.date) +
+                          ' de ' +
+                          DateFormat('MMM').format(tr.date) +
+                          ' de ' +
+                          DateFormat('y').format(tr.date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
