@@ -46,6 +46,7 @@ class MyHomePage extends StatelessWidget {
               return Card(
                 child: Row(
                   children: <Widget>[
+                    // Card  que pretence a Row do preço
                     Container(
                       margin: EdgeInsets.symmetric(
                         horizontal: 15,
@@ -67,13 +68,24 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    // Card que pretence a Column do title e date
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
                           tr.title,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Text(tr.date.toString()),
+                        Text(
+                          tr.date.toString(),
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
                       ],
                     )
                   ],
