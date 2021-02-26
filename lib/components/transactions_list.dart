@@ -7,9 +7,9 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
 
   TransactionList(this.transactions);
+
   @override
   Widget build(BuildContext context) {
-
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
 
@@ -19,10 +19,9 @@ class TransactionList extends StatelessWidget {
         itemCount: transactions.length,
         itemBuilder: (ctx, index) {
           final tr = transactions[index];
-          Card(
+          return Card(
             child: Row(
               children: <Widget>[
-                // Card  que pretence a Row do preço
                 Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: 15,
@@ -35,7 +34,6 @@ class TransactionList extends StatelessWidget {
                     ),
                   ),
                   padding: EdgeInsets.all(10),
-                  // Preço
                   child: Text(
                     'R\$ ${tr.value.toStringAsFixed(2)}',
                     style: TextStyle(
@@ -46,7 +44,7 @@ class TransactionList extends StatelessWidget {
                   ),
                 ),
 
-                // Card que pretence a Column do title e date
+                // Card da Column do title e date
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -57,7 +55,8 @@ class TransactionList extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    // Titulo e data
+
+                    // Titulo e data da transação
                     Text(
                       DateFormat('d').format(tr.date) +
                           ' de ' +
