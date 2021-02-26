@@ -52,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
       _transactions.add(newTransaction);
     });
 
-    // 
+    // Fechando o Modal
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -89,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // Class TransactionnList
             TransactionList(_transactions),
-            
           ],
         ),
       ),
