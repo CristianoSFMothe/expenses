@@ -45,7 +45,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   // Usando a classe transactions
   final List<Transaction> _transactions = [
     Transaction(
@@ -66,8 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
       value: 211.30,
       date: DateTime.now().subtract(Duration(days: 4)),
     ),
-    
-    
+    Transaction(
+      id: 't3',
+      title: 'Conta Cartão',
+      value: 1000.00,
+      date: DateTime.now().subtract(Duration(days: 2)),
+    ),
   ];
 
   // Retornando a lista das transações mais recentes
@@ -121,7 +124,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-
             // Chamando a class Chart
             Chart(_recentTransactions),
 

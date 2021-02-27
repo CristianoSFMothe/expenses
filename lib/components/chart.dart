@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'chart_bar.dart';
 
 class Chart extends StatelessWidget {
-
   // Passando por parametros as informações
   final List<Transaction> recentTransaction;
 
@@ -13,7 +12,6 @@ class Chart extends StatelessWidget {
   // Função para calcular o percentual de despesa de cada dia
   List<Map<String, Object>> get groupedTransactions {
     return List.generate(7, (index) {
-
       // Função para recuperar os dias das semana dinamicamente
       final weekDay = DateTime.now().subtract(
         Duration(days: index),
@@ -55,14 +53,21 @@ class Chart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
-      child: Row(
-        children: groupedTransactions.map((tr) {
-          return ChartBar(
-            label: tr['day'],
-            value: tr['value'],
-            percentage: (tr['value'] as double) / _weekTotalValue,
-          );
-        }).toList(),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactions.map((tr) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: tr['day'],
+                value: tr['value'],
+                percentage: (tr['value'] as double) / _weekTotalValue,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
