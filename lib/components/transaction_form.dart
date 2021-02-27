@@ -3,7 +3,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 class TransactionForm extends StatefulWidget {
-  final void Function(String, double) onSubmit;
+  final void Function(String, double, DateTime) onSubmit;
 
   TransactionForm(this.onSubmit);
 
@@ -17,18 +17,19 @@ class _TransactionFormState extends State<TransactionForm> {
   final _valueController = TextEditingController();
 
   // Recuperando a data selecionada
-  DateTime _selectedDate;
+  DateTime _selectedDate = DateTime.now();
 
   // Função para enviar o formulário
   _submitForm() {
     final title = _titleController.text;
     final value = double.tryParse(_valueController.text) ?? 0.0;
 
-    if (title.isEmpty || value <= 0) {
+    // Verificando o estado antes de salvar
+    if (title.isEmpty || value <= 0 || _selectedDate == null) {
       return;
     }
 
-    widget.onSubmit(title, value);
+    widget.onSubmit(title, value, _selectedDate);
   }
 
   // Função para abri o caledário é escolher um dia
