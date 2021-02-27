@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/transactions.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-
+import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
@@ -11,10 +10,9 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
-    
-    
 
     return Container(
       height: 300,
@@ -23,7 +21,7 @@ class TransactionList extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 20),
                 Text(
-                  'Nenhuma despesa cadastrada!',
+                  'Nenhuma Despesa Cadastrada!',
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 SizedBox(height: 20),

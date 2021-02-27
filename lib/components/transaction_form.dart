@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatefulWidget {
-  // Controladores
   final void Function(String, double) onSubmit;
 
   TransactionForm(this.onSubmit);
@@ -17,12 +16,8 @@ class _TransactionFormState extends State<TransactionForm> {
 
   _submitForm() {
     final title = titleController.text;
-
-    // Tentando fazer a conversão do valor usando o double.tryParse, caso não ocorra
-    // passará o 0.0 (zero) por padrão
     final value = double.tryParse(valueController.text) ?? 0.0;
 
-    // Verificando se tem um valor valido
     if (title.isEmpty || value <= 0) {
       return;
     }
@@ -50,14 +45,14 @@ class _TransactionFormState extends State<TransactionForm> {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
-                labelText: 'Valor (R\$)',
+                labelText: 'Valor R\$',
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 FlatButton(
-                  child: Text('Nova Tansação'),
+                  child: Text('Nova Transação'),
                   textColor: Colors.purple,
                   onPressed: _submitForm,
                 ),

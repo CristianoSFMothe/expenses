@@ -1,10 +1,9 @@
-import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:math';
 import 'components/transaction_form.dart';
-import 'components/transactions_list.dart';
 import 'components/chart.dart';
+import 'components/transactions_list.dart';
 import 'models/transactions.dart';
 
 main() => runApp(ExpensesApp());
@@ -13,8 +12,8 @@ class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
@@ -41,34 +40,37 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // Função do método de modal
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-// Usando a classe transactions
+
+  // Usando a classe transactions
   final List<Transaction> _transactions = [
     Transaction(
       id: 't0',
-      title: 'Conta antiga',
+      title: 'Conta Antiga #01',
       value: 400.00,
       date: DateTime.now().subtract(Duration(days: 33)),
     ),
     Transaction(
       id: 't1',
-      title: 'Novo Têns de Corrida',
+      title: 'Novo Tênis de Corrida',
       value: 310.76,
       date: DateTime.now().subtract(Duration(days: 3)),
     ),
     Transaction(
       id: 't2',
       title: 'Conta de Luz',
-      value: 211.3,
-      date: DateTime.now().subtract(Duration(days: 3)),
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
     ),
+    
+    
   ];
 
+  // Retornando a lista das transações mais recentes
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
       return tr.date.isAfter(DateTime.now().subtract(
@@ -77,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  // Adicionando novas transações
+  // Adicionando uma nova transação
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
@@ -94,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop();
   }
 
+  // Abrindo o Modal para adicionar novas transações
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -106,22 +109,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Despesas Pessoas'),
+        title: Text('Depesas Pessoais'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () => _openTransactionFormModal(context),
-          ),
+          )
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Class Chart
+
+            // Chamando a class Chart
             Chart(_recentTransactions),
 
-            // Class TransactionnList
+            // Chamando a class TransactionList
             TransactionList(_transactions),
           ],
         ),

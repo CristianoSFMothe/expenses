@@ -1,17 +1,19 @@
+import '../models/transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../models/transactions.dart';
 import 'chart_bar.dart';
 
 class Chart extends StatelessWidget {
+
   // Passando por parametros as informações
   final List<Transaction> recentTransaction;
 
   Chart(this.recentTransaction);
 
   // Função para calcular o percentual de despesa de cada dia
-  List<Map<String, Object>> get grupedTransactions {
+  List<Map<String, Object>> get groupedTransactions {
     return List.generate(7, (index) {
+
       // Função para recuperar os dias das semana dinamicamente
       final weekDay = DateTime.now().subtract(
         Duration(days: index),
@@ -28,6 +30,7 @@ class Chart extends StatelessWidget {
         // Verificando para saber se é o mesmo ano
         bool sameYear = recentTransaction[i].date.year == weekDay.year;
 
+        // Verificando os dias, mes e ano das transações
         if (sameDay && sameMonth && sameYear) {
           totalSum += recentTransaction[i].value;
         }
@@ -40,18 +43,24 @@ class Chart extends StatelessWidget {
     });
   }
 
+  // Função para calcular os gasto do dia da semana
+  double get _weekTotalValue {
+    return groupedTransactions.fold(0.0, (sum, tr) {
+      return sum + tr['value'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    grupedTransactions;
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
-        children: grupedTransactions.map((tr) {
+        children: groupedTransactions.map((tr) {
           return ChartBar(
             label: tr['day'],
             value: tr['value'],
-            percentage: 0.3,
+            percentage: (tr['value'] as double) / _weekTotalValue,
           );
         }).toList(),
       ),
