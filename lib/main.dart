@@ -56,9 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // Usando a classe transactions
-  final List<Transaction> _transactions = [
-    
-  ];
+  final List<Transaction> _transactions = [];
 
   // Retornando a lista das transações mais recentes
   List<Transaction> get _recentTransactions {
@@ -84,6 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // Fechando o Modal
     Navigator.of(context).pop();
+  }
+
+  // Método para excluir as transações
+  _removeTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((tr) => tr.id == id);
+    });
   }
 
   // Abrindo o Modal para adicionar novas transações
@@ -116,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Chart(_recentTransactions),
 
             // Chamando a class TransactionList
-            TransactionList(_transactions),
+            TransactionList(_transactions,  _removeTransaction),
           ],
         ),
       ),
