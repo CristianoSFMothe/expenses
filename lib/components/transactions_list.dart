@@ -3,6 +3,7 @@ import '../models/transactions.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
 
@@ -12,6 +13,8 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
+    
+    
 
     return Container(
       height: 300,
@@ -66,12 +69,12 @@ class TransactionList extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             tr.title,
-                            style: Theme.of(context).textTheme.headline6,                           
+                            style: Theme.of(context).textTheme.headline6,
                           ),
 
                           // Data da transação
                           Text(
-                            DateFormat('d').format(tr.date) +
+                            DateFormat('EEE', 'pt_BR').format(tr.date) +
                                 ' de ' +
                                 DateFormat('MMM').format(tr.date) +
                                 ' de ' +
