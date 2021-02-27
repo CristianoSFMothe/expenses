@@ -20,7 +20,7 @@ class _TransactionFormState extends State<TransactionForm> {
 
     // Tentando fazer a conversão do valor usando o double.tryParse, caso não ocorra
     // passará o 0.0 (zero) por padrão
-    final value = double.tryParse(valueController.text) ?? 0;
+    final value = double.tryParse(valueController.text) ?? 0.0;
 
     // Verificando se tem um valor valido
     if (title.isEmpty || value <= 0) {
