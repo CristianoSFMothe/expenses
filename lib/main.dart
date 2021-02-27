@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'dart:math';
 import 'components/transaction_form.dart';
@@ -39,6 +40,11 @@ class ExpensesApp extends StatelessWidget {
               ),
         ),
       ),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [const Locale('pt', 'BR')],
     );
   }
 }
@@ -112,10 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
   // Abrindo o Modal para adicionar novas transações
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return TransactionForm(_addTransaction);
-        });
+      context: context,
+      builder: (_) {
+        return TransactionForm(_addTransaction);
+      },
+    );
   }
 
   @override
