@@ -4,7 +4,7 @@
 ## Fala ai pessoal! :grin:
 
 ### Fonte :construction:
-Aplicativo criado juntamente com o curso da [Udemy] (https://www.udemy.com/course/curso-flutter/learn/lecture/17953822#questions) :heart: na qual foi de grande aprendizagem, e adquirindo grandes conhecimentos nessa jornada. 
+Aplicativo criado juntamente com o curso da [Udemy](https://www.udemy.com/course/curso-flutter/learn/lecture/17953822#questions) :heart: na qual foi de grande aprendizagem, e adquirindo grandes conhecimentos nessa jornada. 
  
 ### Aprendizagem :pencil:
  - Aprendendo a como trabalha datas;
