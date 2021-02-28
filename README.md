@@ -1,17 +1,24 @@
-# expenses
+# Expenses
+# Despesas Pessoas
 
-A new Flutter project.
+## Fala ai pessoal! :grin:
 
-## Getting Started
+### Fonte :construction:
+Aplicativo criado juntamente com o curso da [Udemy] (https://www.udemy.com/course/curso-flutter/learn/lecture/17953822#questions) :heart: na qual foi de grande aprendizagem, e adquirindo grandes conhecimentos nessa jornada. 
+ 
+### Aprendizagem :pencil:
+ - Aprendendo a como trabalha datas;
+ - Aprendendo a trablaha com o layout;
+ - Conhecimento sobre programação, aprimoramento do conhecimento;
+ - Importando fonts externas para a aplicação;
+ - Importando imagens;
+ - Inserindo imagem e editando
+ - Configuração de temas para texto, ícone e botão
+ - Refatoração de código, divindo em partes menores
+ - Entre muitas outras coisas
 
-This project is a starting point for a Flutter application.
+### Falta acerta :wrench:
+Ainda falta alguns detalhes para serem feitos, que com o passar do tempo irei melhorar
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# expenses
