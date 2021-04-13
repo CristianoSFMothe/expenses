@@ -87,26 +87,44 @@ class _TransactionFormState extends State<TransactionForm> {
                           : 'Data Selecionada: ${DateFormat('dd/MM/y', 'pt_BR').format(_selectedDate)}',
                     ),
                   ),
-                  FlatButton(
-                    textColor: Theme.of(context).primaryColor,
+                  TextButton(
+                    onPressed: _showDatePicker,
                     child: Text(
                       'Selecionar Data',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    onPressed: _showDatePicker,
-                  ),
+                    // FlatButton(
+                    //   textColor: Theme.of(context).primaryColor,
+                    //   child: Text(
+                    //     'Selecionar Data',
+                    //     style: TextStyle(fontWeight: FontWeight.bold),
+                    //   ),
+                    //   onPressed: _showDatePicker,
+                    // ),
+                  )
                 ],
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                RaisedButton(
-                  child: Text('Nova Transação'),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Theme.of(context).textTheme.button.color,
+                TextButton(
                   onPressed: _submitForm,
-                ),
+                  child: Text(
+                    'Nova Transação',
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor, 
+                                           
+                    ),
+                    
+                  ),
+                )
+                // RaisedButton(
+                //   child: Text('Nova Transação'),
+                //   color: Theme.of(context).primaryColor,
+                //   textColor: Theme.of(context).textTheme.button.color,
+                //   onPressed: _submitForm,
+                // ),
               ],
             ),
           ],
