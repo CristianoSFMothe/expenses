@@ -126,13 +126,13 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             // Chamando a class Chart
             Container(
-              height: availableHeight * 0.23,
+              height: availableHeight * 0.25,
               child: Chart(_recentTransactions),
             ),
 
             // Chamando a class TransactionList
             Container(
-              height: availableHeight * 0.77,
+              height: availableHeight * 0.75,
               child: TransactionList(_transactions, _removeTransaction),
             ),
           ],
