@@ -57,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // Usando a classe transactions
   final List<Transaction> _transactions = [];
+  bool _showChart = false;
 
   // Retornando a lista das transações mais recentes
   List<Transaction> get _recentTransactions {
@@ -124,9 +125,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Exibir Gráfico'),
+                Switch(
+                  value: _showChart,
+                  onChanged: (value) {
+                    setState(() {
+                      _showChart = value;
+                    });
+                  },
+                ),
+              ],
+            ),
             // Chamando a class Chart
             Container(
-              height: availableHeight * 0.25,
+              height: availableHeight * 0.25, 
               child: Chart(_recentTransactions),
             ),
 
